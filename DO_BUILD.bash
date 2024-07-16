@@ -2,10 +2,9 @@
 #module swap PrgEnv-intel PrgEnv-gnu
 
 # Modules loaded
-
+#module load gcc/8.3.0
 module load gnu/12.2.0
-module load mpich/3.4
-#module load openmpi/4.1.7
+module load openmpi/4.1.7
 module load netcdf/4.7
 module load hdf5/1.12
 
@@ -20,12 +19,16 @@ export MPIFC="mpif90 -I/N/soft/rhel8/netcdf/gnu/4.7/include -I/N/soft/rhel8/hdf5
 export LD_LIBRARY_PATH="/N/soft/rhel8/gcc/12.2.0/lib64:${LD_LIBRARY_PATH}"
 export LIBRARY_PATH="/N/soft/rhel8/gcc/12.2.0/lib64:${LIBRARY_PATH}"
 
-export FCFLAGS="-g -fno-range-check"
-export FFLAGS="-g -fno-range-check"
+#export FCFLAGS="-g -fno-range-check"
+#export FFLAGS="-g -fno-range-check"
+
+#export NETCDF_DIR="/N/soft/rhel8/netcdf/gnu/4.7"
+#export HDF5_DIR="/N/soft/rhel8/hdf5/gnu/1.12"
+
 export CPPFLAGS="-I${NETCDF_DIR}/include -I${HDF5_DIR}/include"
 export CFLAGS="-O2 -I${NETCDF_DIR}/include -I${HDF5_DIR}/include"
 export FCFLAGS="-I${NETCDF_DIR}/include -I${HDF5_DIR}/include"
-#export LDFLAGS="-L${NETCDF_DIR}/lib -L${HDF5_DIR}/lib -Wl,--no-as-needed-lgfortranbegin -lgfortran"
+#export LDFLAGS="-L${NETCDF_DIR}/lib -L${HDF5_DIR}/lib -Wl,--no-as-needed-lgfortranbegin -#lgfortran"
 
 export FCFLAGS="-I${NETCDF_DIR}/include" 
 export FC="gfortran -I${NETCDF_DIR}/include"
