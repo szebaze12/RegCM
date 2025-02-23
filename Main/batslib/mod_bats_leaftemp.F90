@@ -94,7 +94,7 @@ module mod_bats_leaftemp
     implicit none
     real(rkx) :: dcn , delmax , efeb , eg1 , epss , fbare , qbare , &
                qcan , qsatdg , rppdry , sf1 , sf2 , sgtg3 , vakb ,  &
-               xxkb , efpot , tbef , dels
+               xxkb , efpot , tbef , dels,h, dx, Iveg, fractp
     integer(ik4) :: iter , itfull , itmax , i
 #ifdef DEBUG
     character(len=dbgslen) :: subroutine_name = 'lftemp'
@@ -141,6 +141,10 @@ module mod_bats_leaftemp
     delmax = d_one
     itmax = 10
     itfull = itmax
+    !addind dx
+    dx= ds*d_1000
+    !adding efficiency
+    fractp = 0.5
     ! itmax = 40
     ! itfull = 20
 
@@ -291,7 +295,9 @@ module mod_bats_leaftemp
         fbare = wtg2(i)*(tgrd(i)-sts(i))
         qbare = wtg2(i)*(qgrd(i)-qs(i))
         sent(i) = cpd*rhs(i)*(-wta(i)*delt(i)+fbare)
-        evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare)
+        !evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare)
+        ! additional term in evpr
+        evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare) + rhs(i)*delq(i)*uaf(i)*fractp*dx*rough(lveg(i))
         if ( abs(sent(i)) < dlowval ) sent(i) = d_zero
         if ( abs(evpr(i)) < dlowval ) evpr(i) = d_zero
       end if
