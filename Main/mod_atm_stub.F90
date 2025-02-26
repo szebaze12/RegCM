@@ -62,6 +62,7 @@ module mod_atm_stub
   real(rkx) , dimension(:,:) , pointer , public :: vatm
   real(rkx) , dimension(:,:) , pointer , public :: thatm
   real(rkx) , dimension(:,:) , pointer , public :: qvatm
+  real(rkx) , dimension(:,:) , pointer , public :: qcatm
   real(rkx) , dimension(:,:) , pointer , public :: zatm
   real(rkx) , dimension(:,:) , pointer , public :: rho
   real(rkx) , dimension(:,:) , pointer , public :: ps
@@ -525,6 +526,7 @@ module mod_atm_stub
       call getmem2d(vatm,jci1,jci2,ici1,ici2,'lm:vatm')
       call getmem2d(thatm,jci1,jci2,ici1,ici2,'lm:thatm')
       call getmem2d(qvatm,jci1,jci2,ici1,ici2,'lm:qvatm')
+      call getmem2d(qcatm,jci1,jci2,ici1,ici2,'lm:qcatm')
       call getmem2d(zatm,jci1,jci2,ici1,ici2,'lm:zatm')
       call getmem2d(rho,jci1,jci2,ici1,ici2,'lm:rho')
       call getmem2d(ps,jci1,jci2,ici1,ici2,'lm:ps')
@@ -593,6 +595,7 @@ module mod_atm_stub
       call assignpnt(tatm,lm%tatm)
       call assignpnt(patm,lm%patm)
       call assignpnt(qvatm,lm%qvatm)
+      call assignpnt(qcatm,lm%qcatm)
       call assignpnt(zatm,lm%hgt)
 
       call assignpnt(rho,lm%rhox)
