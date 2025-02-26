@@ -79,6 +79,8 @@ module mod_bats_internal
   real(rkx) , pointer , dimension(:) :: flnet
   real(rkx) , pointer , dimension(:) :: flneto
   real(rkx) , pointer , dimension(:) :: fracd
+  ! adding efficiency
+  real(rkx) , pointer , dimension(:) :: fractp 
   real(rkx) , pointer , dimension(:) :: fseng
   real(rkx) , pointer , dimension(:) :: fwet
   real(rkx) , pointer , dimension(:) :: gwet
@@ -288,7 +290,7 @@ module mod_bats_internal
     call getmem1d(rlai,1,nlandp,'bats_internal:rlai')
     call getmem1d(rnet,1,nlandp,'bats_internal:rnet')
     call getmem1d(rpp,1,nlandp,'bats_internal:rpp')
-    call getmem1d(rppq,1,nlandp,'bats_internal:rppq')
+    call getmem1d(rppq,1,nlandp,'bats_internal:rppq')                               
     call getmem1d(rsubst,1,nlandp,'bats_internal:rsubst')
     call getmem1d(rsw,1,nlandp,'bats_internal:rsw')
     call getmem1d(scrat,1,nlandp,'bats_internal:scrat')

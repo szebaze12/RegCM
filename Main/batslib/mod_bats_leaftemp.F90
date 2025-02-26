@@ -94,7 +94,8 @@ module mod_bats_leaftemp
     implicit none
     real(rkx) :: dcn , delmax , efeb , eg1 , epss , fbare , qbare , &
                qcan , qsatdg , rppdry , sf1 , sf2 , sgtg3 , vakb ,  &
-               xxkb , efpot , tbef , dels,h, dx, Iveg, fractp
+               xxkb , efpot , tbef , dels , efficy 
+               
     integer(ik4) :: iter , itfull , itmax , i
 #ifdef DEBUG
     character(len=dbgslen) :: subroutine_name = 'lftemp'
@@ -141,10 +142,8 @@ module mod_bats_leaftemp
     delmax = d_one
     itmax = 10
     itfull = itmax
-    !addind dx
-    dx= ds*d_1000
-    !adding efficiency
-    fractp = 0.5
+    !adding dx
+    !dx= ds*d_1000
     ! itmax = 40
     ! itfull = 20
 
@@ -295,9 +294,14 @@ module mod_bats_leaftemp
         fbare = wtg2(i)*(tgrd(i)-sts(i))
         qbare = wtg2(i)*(qgrd(i)-qs(i))
         sent(i) = cpd*rhs(i)*(-wta(i)*delt(i)+fbare)
+        !adding efficiency factor
+        efficy = 0.3_rkx
+        !flxfw(i) = rhs(i)*q(i)*ufa(i)
+        !qlxfw(i) = fractp*flxfw(i)*dx*h
         !evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare)
-        ! additional term in evpr
-        evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare) + rhs(i)*delq(i)*uaf(i)*fractp*dx*rough(lveg(i))
+        !additional term in evpr for fog interception
+        !evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare) + rhs(i)*delq(i)*uaf(i)*fractp*(ds*d_1000)*rough(lveg(i))
+        evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare + delq(i)*uaf(i)*efficy*d_1000*rough(lveg(i)))
         if ( abs(sent(i)) < dlowval ) sent(i) = d_zero
         if ( abs(evpr(i)) < dlowval ) evpr(i) = d_zero
       end if
