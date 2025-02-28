@@ -517,6 +517,7 @@ module mod_regcm_types
     real(rkx) , pointer , dimension(:,:) :: tatm => null( ) ! atms%tb3d(kz)
     real(rkx) , pointer , dimension(:,:) :: thatm => null( )! atms%th3d(kz)
     real(rkx) , pointer , dimension(:,:) :: qvatm => null( )! atms%qxb3d(kz,iqv)
+    real(rkx) , pointer , dimension(:,:) :: qcatm => null( )! atms%qxb3d(kz,iqc)
     real(rkx) , pointer , dimension(:,:) :: hgt => null( )  ! za(kz)
     real(rkx) , pointer , dimension(:,:) :: hpbl => null( ) ! zpbl
     real(rkx) , pointer , dimension(:,:) :: hfx => null( )  ! sfs%hfx

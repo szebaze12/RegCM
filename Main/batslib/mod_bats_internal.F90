@@ -196,6 +196,7 @@ module mod_bats_internal
 
   real(rkx) , pointer , dimension(:) :: p0
   real(rkx) , pointer , dimension(:) :: qs0
+  real(rkx) , pointer , dimension(:) :: qc0
   real(rkx) , pointer , dimension(:) :: ts0
   real(rkx) , pointer , dimension(:) :: swd0
   real(rkx) , pointer , dimension(:) :: swf0

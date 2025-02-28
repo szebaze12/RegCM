@@ -56,7 +56,7 @@ module mod_bats_param
                              deptv , depuv , displa , fc , freza ,  &
                              frezu , rough , rsmin , sai , seasf ,  &
                              sqrtdi , mfcv , xla , xlai0 , rootf ,  &
-                             slmo , lndemiss , seasemi
+                             slmo , lndemiss , seasemi, fogeps
   real(rkx) , dimension(17) :: bee , skrat , xmofc , xmohyd , xmopor ,&
                              xmosuc , xmowil
   integer(ik4) , dimension(22) :: kolsol
@@ -189,6 +189,14 @@ module mod_bats_param
             0.02_rkx , 0.02_rkx , 0.02_rkx , 0.02_rkx , 0.02_rkx , 0.02_rkx , &
             0.02_rkx , 0.02_rkx , 0.02_rkx , 0.02_rkx , 0.02_rkx , 0.06_rkx , &
             0.02_rkx , 0.02_rkx , 0.02_rkx , 0.02_rkx /
+  !
+  ! fogeps = the efficiency of cloud water capture in the vegetation
+  ! BATS 1e , Table 2, n, pag 21
+  !
+  data fogeps / 0.00_rkx , 0.00_rkx , 0.10_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx , &
+                0.00_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx , &
+                0.00_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx , &
+                0.00_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx /
   !
   ! depuv is depth of upper soil layer (mm)
   ! BATS 1e , Table 2, e, pag 21
