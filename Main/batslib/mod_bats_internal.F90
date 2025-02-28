@@ -368,6 +368,7 @@ module mod_bats_internal
     call getmem1d(ltex,1,nlandp,'bats_internal:ltex')
     call getmem1d(p0,1,nlandp,'bats_internal:p0')
     call getmem1d(qs0,1,nlandp,'bats_internal:qs0')
+    call getmem1d(qc0,1,nlandp,'bats_internal:qc0')
     call getmem1d(ts0,1,nlandp,'bats_internal:ts0')
     call getmem1d(swd0,1,nlandp,'bats_internal:swd0')
     call getmem1d(swf0,1,nlandp,'bats_internal:swf0')
