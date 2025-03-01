@@ -18,12 +18,11 @@ export MPIFC="mpif90 -I/N/soft/rhel8/netcdf/gnu/4.7/include -I/N/soft/rhel8/hdf5
 
 export LD_LIBRARY_PATH="/N/soft/rhel8/gcc/12.2.0/lib64:${LD_LIBRARY_PATH}"
 export LIBRARY_PATH="/N/soft/rhel8/gcc/12.2.0/lib64:${LIBRARY_PATH}"
-export FCFLAGS="-g -fno-range-check"
+#export FCFLAGS="-g -fno-range-check"
 #export FFLAGS="-g -fno-range-check"
-
+export CFLAGS="-g -O0  -fbacktrace"
 #export NETCDF_DIR="/N/soft/rhel8/netcdf/gnu/4.7"
 #export HDF5_DIR="/N/soft/rhel8/hdf5/gnu/1.12"
-
 export CPPFLAGS="-I${NETCDF_DIR}/include -I${HDF5_DIR}/include"
 export CFLAGS="-O2 -I${NETCDF_DIR}/include -I${HDF5_DIR}/include"
 export FCFLAGS="-I${NETCDF_DIR}/include -I${HDF5_DIR}/include"
@@ -41,8 +40,8 @@ set -e
 ./configure \
 	--with-netcdf=$NETCDF_DIR \
 	--with-hdf5=$HDF5_DIR 
-#make clean
+make clean
 
-#make -j6 install
+make -j8 install
 
 

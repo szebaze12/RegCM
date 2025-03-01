@@ -299,13 +299,12 @@ module mod_bats_leaftemp
         !qlxfw(i) = fractp*flxfw(i)*dx*h
         !evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare)
         !additional term in evpr for fog interception
-<<<<<<< HEAD
-         evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare) + rhs(i)*delq(i)*uaf(i)*efficy*(ds*d_1000)*rough(lveg(i))
+
+         !evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare) + rhs(i)*delq(i)*uaf(i)*efficy*(ds*d_1000)*rough(lveg(i))
         !evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare + delq(i)*uaf(i)*efficy*d_1000*rough(lveg(i)))
-=======
+
         !evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare) + rhs(i)*delq(i)*uaf(i)*fractp*(ds*d_1000)*rough(lveg(i))
         evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare + qc0(i)*uaf(i)*fogeps(lveg(i))*(ds*d_1000)*rough(lveg(i)))
->>>>>>> 4f71ae6f040718475416373e68ad4fdae17481f8
         if ( abs(sent(i)) < dlowval ) sent(i) = d_zero
         if ( abs(evpr(i)) < dlowval ) evpr(i) = d_zero
       end if

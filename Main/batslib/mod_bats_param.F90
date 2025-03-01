@@ -193,10 +193,10 @@ module mod_bats_param
   ! fogeps = the efficiency of cloud water capture in the vegetation
   ! BATS 1e , Table 2, n, pag 21
   !
-  data fogeps / 0.00_rkx , 0.00_rkx , 0.10_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx , &
-                0.00_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx , &
-                0.00_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx , &
-                0.00_rkx , 0.00_rkx , 0.00_rkx , 0.00_rkx /
+  data fogeps / 0.10_rkx , 0.10_rkx , 0.10_rkx , 0.10_rkx , 0.10_rkx , 0.10_rkx , &
+                0.10_rkx , 0.10_rkx , 0.10_rkx , 0.10_rkx , 0.10_rkx , 0.10_rkx , &
+                0.10_rkx , 0.10_rkx , 0.10_rkx , 0.10_rkx , 0.10_rkx , 0.10_rkx , &
+                0.10_rkx , 0.10_rkx , 0.10_rkx , 0.10_rkx /
   !
   ! depuv is depth of upper soil layer (mm)
   ! BATS 1e , Table 2, e, pag 21
