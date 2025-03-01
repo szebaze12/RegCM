@@ -294,6 +294,7 @@ module mod_bats_leaftemp
         fbare = wtg2(i)*(tgrd(i)-sts(i))
         qbare = wtg2(i)*(qgrd(i)-qs(i))
         sent(i) = cpd*rhs(i)*(-wta(i)*delt(i)+fbare)
+<<<<<<< HEAD
         !adding efficiency factor
         !flxfw(i) = rhs(i)*q(i)*ufa(i)
         !qlxfw(i) = fractp*flxfw(i)*dx*h
@@ -305,6 +306,10 @@ module mod_bats_leaftemp
 
         !evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare) + rhs(i)*delq(i)*uaf(i)*fractp*(ds*d_1000)*rough(lveg(i))
         evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare + qc0(i)*uaf(i)*fogeps(lveg(i))*(ds*d_1000)*rough(lveg(i)))
+=======
+        ! TAO & SZ: added additional term in evpr for fog interception
+        evpr(i) = rhs(i)*(-wta(i)*delq(i) + rgr(i)*qbare - qc0(i)*uaf(i)*fogeps(lveg(i))*rough(lveg(i))/(ds*d_1000) )
+>>>>>>> 2835c61308de26721f4233d56c18d09bcd79f93b
         if ( abs(sent(i)) < dlowval ) sent(i) = d_zero
         if ( abs(evpr(i)) < dlowval ) evpr(i) = d_zero
       end if
